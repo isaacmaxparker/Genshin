@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="scripts/Global.js"></script>
+        <script src="scripts/Home.js"></script>
+        <link rel="stylesheet" href="styles/global.css">
+        <link rel="stylesheet" href="styles/home.css">
+    </head>
+    <body class="back-image-1">
+        <div class="left_aside">
+
+        </div>
+        <div class="main_content">
+            <div class="header">Welcome to the Genshin Impact Random Team Generator</div>
+            <div class="subheader">Version 1.0</div>
+            <div class="instructions">Use the "Random" button to generate a random team or use one of our preset buttons. Settings can be adjusted as well<br><Br><b><i>* NOTE: Preset Buttons ignore all settings</i></b></div>
+            <div class="characters">
+                <div id="char_slot_1" class="character_slot">
+                    <div class="character">
+                        <div id="char_settings_1" class="character_settings hidden" data-rarity="Any">
+                            <div class="char_setting" onclick="changeRarity(this.parentElement)">Rarity: <span class="rarity_setting">Any</span></div>
+                        </div>
+                        <div class="character_settings_toggle" onclick="toggleSettings(this.parentElement.children[0])">&#9660;</div>
+                        <div class="character_img"><img src="https://static.wikia.nocookie.net/gensin-impact/images/0/00/Character_Albedo_Thumb.png/revision/latest?cb=20210213163457"/></div>
+                        <div class="character_name">Albedo</div>
+                    </div>
+                    <div id="role_1" class="character_role" data-role="Any" data-slot="1" onclick="changeRole(this)">Any</div>
+                </div>
+                <div id="char_slot_2" class="character_slot">
+                    <div class="character">
+                        <div id="char_settings_2" class="character_settings hidden" data-rarity="Any">
+                            <div class="char_setting" onclick="changeRarity(this.parentElement)">Rarity: <span class="rarity_setting">Any</span></div>
+                        </div>
+                        <div class="character_settings_toggle" onclick="toggleSettings(this.parentElement.children[0])">&#9660;</div>
+                        <div class="character_img"><img src="https://static.wikia.nocookie.net/gensin-impact/images/0/00/Character_Albedo_Thumb.png/revision/latest?cb=20210213163457"/></div>
+                        <div class="character_name">Albedo</div>
+                    </div>
+                    <div id="role_2" class="character_role" data-role="Any" data-slot="2" onclick="changeRole(this)">Any</div>
+                </div>
+                <div id="char_slot_3" class="character_slot">
+                    <div class="character">
+                        <div id="char_settings_3" class="character_settings hidden" data-rarity="Any">
+                            <div class="char_setting" onclick="changeRarity(this.parentElement)">Rarity: <span class="rarity_setting">Any</span></div>
+                        </div>
+                        <div class="character_settings_toggle" onclick="toggleSettings(this.parentElement.children[0])">&#9660;</div>
+                        <div class="character_img"><img src="https://static.wikia.nocookie.net/gensin-impact/images/0/00/Character_Albedo_Thumb.png/revision/latest?cb=20210213163457"/></div>
+                        <div class="character_name">Albedo</div>
+                    </div>
+                    <div id="role_3" class="character_role" data-role="Any" data-slot="3" onclick="changeRole(this)">Any</div>
+                </div>
+                <div id="char_slot_4" class="character_slot">
+                    <div class="character">
+                        <div id="char_settings_4" class="character_settings hidden" data-rarity="Any">
+                            <div class="char_setting" onclick="changeRarity(this.parentElement)">Rarity: <span class="rarity_setting">Any</span></div>
+                        </div>
+                        <div class="character_settings_toggle" onclick="toggleSettings(this.parentElement.children[0])">&#9660;</div>
+                        <div class="character_img"><img src="https://static.wikia.nocookie.net/gensin-impact/images/0/00/Character_Albedo_Thumb.png/revision/latest?cb=20210213163457"/></div>
+                        <div class="character_name">Albedo</div>
+                    </div>
+                    <div id="role_4" class="character_role" data-role="Any" data-slot="4"  onclick="changeRole(this)">Any</div>
+                </div>
+            </div>
+            <div id="error_message" class="hidden">ERROR: There are not enough unlocked characters to match your current settings. Please update your settings or unlocked characters</div>
+            <div class="buttons">
+                <div class="generate_button" onclick="generateTeam()">Generate Random Team</div>
+                <div class="preset_buttons">
+                    <div class="preset_button" onclick="presetTeam('pyro','element')">Pyro Team</div>
+                    <div class="preset_button" onclick="presetTeam('cryo' ,'element')">Cryo Team</div>
+                    <div class="preset_button" onclick="presetTeam('hydro','element')" >Hydro Team</div>
+                    <div class="preset_button" onclick="presetTeam('geo','element')">Geo Team</div>
+                    <div class="preset_button" onclick="presetTeam('anemo','element')">Anemo Team</div>
+                    <div class="preset_button" onclick="presetTeam('electro','element')">Electro Team</div>
+                </div>
+                <div class="preset_buttons">
+                    <div class="preset_button" onclick="presetTeam('bow','weapon')">Bow Team</div>
+                    <div class="preset_button" onclick="presetTeam('polearm','weapon')">Polearm Team</div>
+                    <div class="preset_button" onclick="presetTeam('sword','weapon')" >Sword Team</div>
+                    <div class="preset_button" onclick="presetTeam('claymore','weapon')">Claymore Team</div>
+                    <div class="preset_button" onclick="presetTeam('catalyst','weapon')">Catalyst Team</div>
+                </div>
+            </div>
+        </div>
+        <div id="right_aside" class="offScreen">
+            <div class="toggle_button_right" onclick="toggleAside('right')"><span>p</span></div>
+            <div class="aside_heading">Characters</div>
+            <div class="aside_description">Toggle the characters you have unlocked. Click on each portrait to enable/disable a character</div>
+            <div class="aside_characters" id="character_toggles">
+                <div class="character_toggle_icon"><img src=""></div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+            //let showLocation;
+            function ready(fn) {
+                if (document.readyState != 'loading') {
+                    fn();
+                } else {
+                    document.addEventListener('DOMContentLoaded', fn);
+                }
+            }
+
+            ready(function () {
+                Global.init();
+                Home.init();
+                changeRole = Home.changeRole
+                generateTeam = Home.generateTeam
+                presetTeam = Home.presetTeam
+                toggleSettings = Home.toggleSettings
+                changeRarity = Home.changeRarity
+                toggleAside = Home.toggleAside
+                toggleUnlockedCharacter = Home.toggleUnlockedCharacter
+            });
+    </script>
+</html>
+3

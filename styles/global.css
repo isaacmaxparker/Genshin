@@ -1,0 +1,62 @@
+.hidden{
+    opacity: 0;
+    display: none;
+}
+
+/* FONTS */
+@font-face {
+    font-family: 'rifficons';
+    src: url('fonts/rifftideicons.woff') format('woff'),
+         url('fonts/rifftideicons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RennerLight';
+    src: url('fonts/renner-light-webfont.woff2') format('woff2'),
+         url('fonts/renner-light-webfont.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Renner';
+    src: url('fonts/renner-lightitalic-webfont.woff2') format('woff2'),
+         url('fonts/renner-lightitalic-webfont.woff') format('woff');
+    font-weight: lighter;
+    font-style: italic;
+
+}
+@font-face {
+    font-family: 'Renner';
+    src: url('fonts/renner-medium-webfont.woff2') format('woff2'),
+         url('fonts/renner-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Renner';
+    src: url('fonts/renner-mediumitalic-webfont.woff2') format('woff2'),
+         url('fonts/renner-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+@font-face {
+    font-family: 'Signature';
+    src: url('fonts/authenticsignature-webfont.woff') format('woff'),
+    url('fonts/AuthenticSignature.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Pumpkin';
+    src: url('fonts/pumpkincheesecake-webfont.woff2') format('woff2'),
+         url('fonts/pumpkincheesecake-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
